@@ -16,10 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+
+from main.views import create_product_flutter
 ...
 from django.urls import path, include
 ...
 urlpatterns = [
     path('', include('main.urls')),
     path('admin/', admin.site.urls),
+    path('auth/', include('authentication.urls')),
+    path('create-flutter/', create_product_flutter, name='create_product_flutter'),
 ]
